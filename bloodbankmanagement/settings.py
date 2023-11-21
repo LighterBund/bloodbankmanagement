@@ -25,9 +25,9 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 SECRET_KEY = '+zy!9k=9pql5gz9bkqjore)k6r!%w0atk(@(!(!zvp5e(t2i8n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 
 
 # Application definition
@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'bloodbankmanagement.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'cbFCG22dGCBDef5BB2eeEAfe42ge-DFg',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '51348',
     }
 }
 
@@ -128,6 +132,9 @@ STATICFILES_DIRS=[
 STATIC_DIR,
  ]
 LOGIN_REDIRECT_URL='/afterlogin'
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 #for contact us give your gmail id and password
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
